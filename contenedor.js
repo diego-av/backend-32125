@@ -1,6 +1,6 @@
 const fs = require("fs");
 
-class Contenedor {
+class Container {
   constructor(ruta) {
     this.ruta = ruta;
   }
@@ -61,6 +61,7 @@ class Contenedor {
     try {
       const contentFile = await this.read();
       console.log("Productos encontrados: " + JSON.stringify(contentFile));
+      return contentFile;
     } catch (error) {
       console.log("Error al traer todos los productos. " + error);
     }
@@ -87,12 +88,12 @@ class Contenedor {
   }
 }
 
-const contenedor = new Contenedor("./products.txt");
+const container = new Container("./products.txt");
 
-module.exports = { Contenedor, contenedor };
+module.exports = { Container, container };
 
-// Contenedor.save({ product: "Escuadra", price: 123.45, id: 1 });
-// contenedor.getById(2);
-// contenedor.getAll();
-// contenedor.deleteById(2);
-// contenedor.deleteAll();
+// Container.save({ product: "Escuadra", price: 123.45, id: 1 });
+// Container.getById(2);
+// Container.getAll();
+// Container.deleteById(2);
+// Container.deleteAll();

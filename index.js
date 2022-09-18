@@ -1,6 +1,6 @@
-const { Contenedor, contenedor } = require("./contenedor");
+const { Container, container } = require("./contenedor");
 
-const classContenedor = contenedor.save({
+const classContainer = container.save({
   product: "Globo terraqueo",
   price: 345.67,
   id: 3,

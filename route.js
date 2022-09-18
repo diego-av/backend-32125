@@ -1,25 +1,22 @@
 const express = require("express");
 const app = express();
-const { Contenedor } = require("./contenedor");
+const { Container, container } = require("./contenedor");
+const PORT = process.env.PORT || 8080;
 
-const products = new Contenedor("./products.txt");
-const getProducts = products.getAll();
+const products = new Container("./products.txt");
 
-app.get("/", (req, res) => {
-  res.send("Hola");
+app.get("/products", async (req, res) => {
+  const result = await products.getAll();
+  res.json(result);
 });
 
-app.get("/products", (req, res) => {
-  res.send(getProducts);
-});
-
-app.get("/productRandom", (req, res) => {
-  const random = getProducts[Math.floor(Math.random() * getProducts.length)];
+app.get("/randomProduct", async (req, res) => {
+  const result = await products.getAll();
+  const random = result[Math.floor(Math.random() * result.length)];
   res.send(random);
 });
 
-const port = 8080;
-const server = app.listen(port, () => {
+const server = app.listen(PORT, () => {
   console.log(`Listening on port ${server.address().port}`);
 });
 server.on("error", (err) => console.log(err));
