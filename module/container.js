@@ -50,8 +50,8 @@ class Container {
   async getById(id) {
     try {
       const contentFile = await this.read();
-      let searchId = contentFile.find((el) => el.id === id);
-      console.log(searchId);
+      const searchId = contentFile.find((el) => el.id === parseInt(id));
+      return searchId;
     } catch (error) {
       console.log(error);
     }
@@ -60,7 +60,6 @@ class Container {
   async getAll() {
     try {
       const contentFile = await this.read();
-      console.log("Productos encontrados: " + JSON.stringify(contentFile));
       return contentFile;
     } catch (error) {
       console.log("Error al traer todos los productos. " + error);
@@ -70,9 +69,10 @@ class Container {
   async deleteById(id) {
     try {
       const contentFile = await this.read();
-      let deleteId = contentFile.filter((el) => el.id !== id);
+      const deleteId = contentFile.filter((el) => el.id !== parseInt(id));
       console.log(deleteId);
       await fs.promises.writeFile(this.ruta, JSON.stringify(deleteId, null, 2));
+      return deleteId;
     } catch (error) {
       console.log(error);
     }
@@ -92,8 +92,8 @@ const container = new Container("./products.txt");
 
 module.exports = { Container, container };
 
-// Container.save({ product: "Escuadra", price: 123.45, id: 1 });
-// Container.getById(2);
+// Container.save({ product: "Goma", price: 123.45, id: 4 });
+// Container.getById(1);
 // Container.getAll();
 // Container.deleteById(2);
 // Container.deleteAll();

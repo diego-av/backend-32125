@@ -1,16 +1,22 @@
-[{
-    "product": "Escuadra",
+[
+  {
+    "name": "Escuadra",
     "price": 123.45,
     "id": 1
   },
   {
-    "product": "Calculadora",
+    "name": "Calculadora",
     "price": 234.56,
     "id": 2
   },
   {
-    "product": "Globo terraqueo",
+    "name": "Globo terraqueo",
     "price": 345.67,
     "id": 3
+  },
+  {
+    "name": "Goma de borrar",
+    "price": "40",
+    "id": 4
   }
 ]

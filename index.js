@@ -1,7 +1,7 @@
-const { Container, container } = require("./contenedor");
+// const { Container, container } = require("./module/container");
 
-const classContainer = container.save({
-  product: "Globo terraqueo",
-  price: 345.67,
-  id: 3,
-});
+// const classContainer = container.save({
+//   product: "Globo terraqueo",
+//   price: 345.67,
+//   id: 3,
+// });
