@@ -21,16 +21,21 @@ router.post("/", async (req, res) => {
   res.json(saveProduct);
 });
 
-// router.put("/:id", async (req, res) => {
-//   const { id } = req.params;
-//   const { name, price } = req.body;
-//   const prod = {
-//     name: name,
-//     price: price,
-//   };
-//   const productId = await products.getById(id);
-//   res.json(productId);
-// });
+router.put("/:id", async (req, res) => {
+  const { id } = req.params;
+  console.log(req.params);
+  const { name, price } = req.body;
+  console.log(req.body);
+  const productId = await products.getById(id);
+  console.log(productId);
+  productId.name = name;
+  console.log(productId.name);
+  productId.price = price;
+  console.log(productId.price);
+  res.send({
+    mensaje: "ok",
+  });
+});
 
 router.delete("/:id", async (req, res) => {
   const { id } = req.params;
